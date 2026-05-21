@@ -1,226 +1,195 @@
-export default function LaserRecipeManager() {
+<!DOCTYPE html>
+<html lang="en">
 
-  const recipes = [
+<head>
 
-  {
-    name: "Infinera",
-    ccj: "-",
-    jig: "Infinera",
-    stage: "10.75 ± 0.05",
-    column: "1.5° – 2°",
-    cleaveAngle: "4° ± 0.5°",
-    cleave:"1, 200, 29",
-    polish:"0, 200, 15",
-    fine:"18, 200, 30",
-    pwm: "-",
-    asset: "CE003540"
-  },
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {
-    name: "337883-0",
-    ccj: "200/240 (ShockWave Medical Inc.)",
-    jig: "D132182-03",
-    stage: "10.80 ± 0.05",
-    column: "11°",
-    cleaveAngle: "0° ± 0.3° (Flat)",
-    cleave:"1, 200, 90",
-    polish:"0, 200, 16",
-    fine:"24, 200, 60",
-    pwm: "210",
-    asset: "CE003540"
-  },
+<title>Laser Cleaving Recipes</title>
 
-  {
-    name: "Oclaro PMF",
-    ccj: "-",
-    jig: "Oclaro",
-    stage: "9.25",
-    column: "10.7°",
-    cleaveAngle: "4° ± 0.5°",
-    rpt: "1 / 0 / 18",
-    rpm: "200 / 200 / 200",
-    pwr: "29 / 15 / 30",
-    pwm: "65",
-    asset: "CE003990"
-  },
+<style>
 
-  {
-    name: "Oclaro SMF",
-    ccj: "-",
-    jig: "Oclaro",
-    stage: "10.75 ± 0.05",
-    column: "7.6°",
-    cleaveAngle: "Flat",
-    cleave:"1, 200, 29",
-    polish:"0, 200, 20",
-    fine:"16, 200, 33",
-    pwm: "55",
-    asset: "CE003990"
-  },
-
-  {
-    name: "338371",
-    ccj: "-",
-    jig: "Infinera 1.4 Kovar",
-    stage: "10.75 ± 0.05",
-    column: "9.8°",
-    cleaveAngle: "Flat",
-    cleave:"1, 200, 28",
-    polish:"0, 200, 20",
-    fine:"20, 200, 35",
-    pwm: "65",
-    asset: "CE003540"
-  },
-
-  {
-    name: "338810-0",
-    ccj: "8.4/125/900",
-    jig: "D132182-03",
-    stage: "10.95",
-    column: "11°",
-    cleaveAngle: "Flat",
-    cleave:"1, 200, 29",
-    polish:"0, 200, 20",
-    fine:"16, 200, 33",
-    pwm: "65",
-    asset: "CE003540"
-  },
-
-  {
-    name: "339870-0",
-    ccj: "8.4/125/900",
-    jig: "317696-01",
-    stage: "10.90",
-    column: "9.7°",
-    cleaveAngle: "Flat",
-    rpt: "1 / 0 / 20",
-    rpm: "200 / 200 / 200",
-    pwr: "28 / 20 / 33",
-    pwm: "65",
-    asset: "CE003540"
-  },
-
-  {
-    name: "340738-0",
-    ccj: "200/240",
-    jig: "D132182-03",
-    stage: "10.80",
-    column: "11°",
-    cleaveAngle: "0° ± 0.3° (Flat)",
-    cleave:"1, 200, 90",
-    polish:"0, 200, 16",
-    fine:"24, 200, 60",
-    pwm: "210",
-    asset: "CE003540"
-  },
-
-  {
-    name: "xxxxxxxx",
-    ccj: "8/125",
-    jig: "Infinera 1.4 Kovar",
-    stage: "11.15 ± 0.5",
-    column: "2.05°",
-    cleaveAngle: "8° ± 0.5°",
-    cleave:"1, 200, 28",
-    polish:"0, 200, 20",
-    fine:"20, 200, 35",
-    pwm: "65",
-    asset: "CE003540"
-  }
-
-];
-
-  return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-
-        <div className="bg-blue-900 text-white p-5">
-          <h1 className="text-3xl font-bold">
-            Laser Cleaving Recipes
-          </h1>
-
-          <p className="mt-1 text-sm">
-            Sagitta Laser Cleaver Settings
-          </p>
-        </div>
-
-        <table className="w-full border-collapse">
-
-          <thead>
-            <tr className="bg-gray-200 text-left">
-              <th className="p-3 border">Recipe</th>
-              <th className="p-3 border">Jig</th>
-              <th className="p-3 border">Stage</th>
-              <th className="p-3 border">Column</th>
-              <th className="p-3 border">Cleave Angle</th>
-              <th className="p-3 border">CLEAVE<br/>RPT, RPM, PWR</th>
-              <th className="p-3 border">POLISH<br/>RPT, RPM, PWR</th>
-              <th className="p-3 border">FINE<br/>RPT, RPM, PWR</th>
-              <th className="p-3 border">PWM</th>
-              <th className="p-3 border">Asset</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            {recipes.map((recipe, index) => (
-
-              <tr
-                key={index}
-                className="hover:bg-gray-50"
-              >
-
-                <td className="p-3 border font-semibold">
-                  {recipe.name}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.jig}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.stage}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.column}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.cleaveAngle}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.cleave}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.polish}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.fine}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.pwm}
-                </td>
-
-                <td className="p-3 border">
-                  {recipe.asset}
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-  );
+body{
+    font-family:Arial,sans-serif;
+    background:#f0f2f5;
+    margin:0;
+    padding:20px;
 }
+
+.container{
+    max-width:1600px;
+    margin:auto;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.header{
+    background:#12395b;
+    color:white;
+    padding:20px;
+}
+
+.header h1{
+    margin:0;
+}
+
+.header p{
+    margin-top:6px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#dce5ee;
+    padding:12px;
+    border:1px solid #c7d0d8;
+    text-align:left;
+}
+
+td{
+    padding:12px;
+    border:1px solid #d8e0e8;
+}
+
+tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.footer{
+    text-align:center;
+    padding:16px;
+    color:#666;
+    font-size:13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>Laser Cleaving Recipes</h1>
+<p>Sagitta Laser Cleaver Settings</p>
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Recipe</th>
+<th>Jig</th>
+<th>Stage</th>
+<th>Column</th>
+<th>Cleave Angle</th>
+
+<th>CLEAVE<br>RPT,RPM,PWR</th>
+<th>POLISH<br>RPT,RPM,PWR</th>
+<th>FINE<br>RPT,RPM,PWR</th>
+
+<th>PWM</th>
+<th>Asset</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Infinera</td>
+<td>Infinera</td>
+<td>10.75 ± 0.05</td>
+<td>1.5° – 2°</td>
+<td>4° ± 0.5°</td>
+
+<td>1, 200, 29</td>
+<td>0, 200, 15</td>
+<td>18, 200, 30</td>
+
+<td>-</td>
+<td>CE003540</td>
+</tr>
+
+<tr>
+<td>337883-0</td>
+<td>D132182-03</td>
+<td>10.80 ± 0.05</td>
+<td>11°</td>
+<td>Flat</td>
+
+<td>1, 200, 90</td>
+<td>0, 200, 16</td>
+<td>24, 200, 60</td>
+
+<td>210</td>
+<td>CE003540</td>
+</tr>
+
+<tr>
+<td>Oclaro PMF</td>
+<td>Oclaro</td>
+<td>9.25</td>
+<td>10.7°</td>
+<td>4° ± 0.5°</td>
+
+<td>1, 200, 29</td>
+<td>0, 200, 15</td>
+<td>18, 200, 30</td>
+
+<td>65</td>
+<td>CE003990</td>
+</tr>
+
+<tr>
+<td>Oclaro SMF</td>
+<td>Oclaro</td>
+<td>10.75 ± 0.05</td>
+<td>7.6°</td>
+<td>Flat</td>
+
+<td>1, 200, 29</td>
+<td>0, 200, 20</td>
+<td>16, 200, 33</td>
+
+<td>55</td>
+<td>CE003990</td>
+</tr>
+
+<tr>
+<td>338371</td>
+<td>Infinera 1.4 Kovar</td>
+<td>10.75 ± 0.05</td>
+<td>9.8°</td>
+<td>Flat</td>
+
+<td>1, 200, 28</td>
+<td>0, 200, 20</td>
+<td>20, 200, 35</td>
+
+<td>65</td>
+<td>CE003540</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="footer">
+OZ Optics Limited — Internal Laser Cleaving Recipe Tool
+</div>
+
+</div>
+
+</body>
+</html>
